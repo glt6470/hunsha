@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
     <div class="header">
@@ -44,5 +45,25 @@
             <img src="images/logo_m.png" alt="" class="zimu"></div>
         </div>
     </div>
+    <script>
+        $(function(){
+            show("index1.html")
+            function show(url){
+            $.ajax({
+			url : url,
+			cache : true,
+			async : false,
+			success : function(html) {
+				$(".main").html(html);
+			}
+        })};
+        $(".list li").click(function(){
+            var num = $(this).index()+1;
+            var url = "index"+num;
+            $(".main").empty();
+            show(url);
+        })
+        })
+    </script>
 </body>
 </html>
