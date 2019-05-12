@@ -47,7 +47,7 @@
     </div>
     <script>
         $(function(){
-            show("index3.html")
+            show("index1.html")
             function show(url){
             $.ajax({
 			url : url,
@@ -59,7 +59,11 @@
         })};
         $(".list li").click(function(){
             var num = $(this).index()+1;
-            var url = "index"+num;
+            var url = "index"+num+".html";
+            if(num>4){
+                return
+            }
+            $(this).addClass("active").siblings().removeClass("active");
             $(".main").empty();
             show(url);
         })
